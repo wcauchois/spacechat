@@ -1,0 +1,12 @@
+{
+  "name": "spacechat",
+  "description": "a chat in space",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "3.x",
+    "mongodb": "*",
+    "mu2": "*",
+    "socket.io": "*"
+  }
+}
