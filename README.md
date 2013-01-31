@@ -4,7 +4,7 @@ SpaceChat
 Getting Started
 ---------------
 
-For automating common tasks, we use (Fabric)[http://fabfile.org]. Install it first using `pip install fabric`.
+For automating common tasks, we use [Fabric](http://fabfile.org). Install it first using `pip install fabric`.
 
 Run `fab bootstrap` to set up your environment (currently, this just installs a bunch fo node modules for you). Run `fab node` to start a dev Node server.
 
