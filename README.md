@@ -1,4 +1,4 @@
-spacechat
+SpaceChat
 =========
 
 Getting Started
