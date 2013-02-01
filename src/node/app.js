@@ -31,6 +31,7 @@ var defaultMustacheOptions = {
             '/javascripts/jquery.timeago.js',
             '/javascripts/jquery.mustache.js',
             '/javascripts/socket.io.min.js',
+            '/javascripts/less.min.js',
             '/javascripts/clientTemplates.js'].map(function(scriptPath) {
               return '<script type="text/javascript" src="' +
                 scriptPath + '"></script>\n'; }).join('');
