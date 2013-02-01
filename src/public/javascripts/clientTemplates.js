@@ -1,4 +1,4 @@
-var clientTemplates = {};
+var templates = {};
 $(document).ready(function() {
   $('script[type="application/mustache"]').each(function(_, script) {
     var $script = $(script);
