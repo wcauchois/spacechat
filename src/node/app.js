@@ -1,22 +1,48 @@
 var express = require('express'),
-    mustache = require('mu2'),
+    mustache = require('./mustache.js'),
     mongo = require('mongodb'),
     path = require('path'),
-    fs = require('fs');
+    fs = require('fs'),
+    util = require('util');
 
 var app = express();
 
 app.set('views', path.join(__dirname, '../mustache'));
 app.use(express.static(path.join(__dirname, '../public')));
 
-app.engine('mustache', function(path, options, callback) {
-  var stream = mustache.compileAndRender(path, options)
-  var buffer = '';
-  stream.on('data', function(data) {
-    buffer += data;
-  });
-  stream.on('end', function() {
-    callback(null, buffer);
+function mergeDictionaries(x, y) {
+  var result = {};
+  for (var attr in x) result[attr] = x[attr];
+  for (var attr in y) result[attr] = y[attr];
+  return result;
+}
+
+var defaultMustacheOptions = {
+  clientTemplate: function() {
+    return function(name) {
+      var templatePath = path.join(app.get('views'), name + '.mustache');
+      return '<script type="application/mustache" id="' + name + 'Template">\n' +
+        fs.readFileSync(templatePath, 'utf8') +
+        '\n</script>';
+    };
+  },
+  baseJavascripts: function() {
+    return ['/javascripts/jquery.min.js',
+            '/javascripts/jquery.timeago.js',
+            '/javascripts/jquery.mustache.js',
+            '/javascripts/socket.io.min.js',
+            '/javascripts/clientTemplates.js'].map(function(scriptPath) {
+              return '<script type="text/javascript" src="' +
+                scriptPath + '"></script>\n'; }).join('');
+  }
+};
+
+app.engine('mustache', function(path, extraOptions, callback) {
+  var options = mergeDictionaries(defaultMustacheOptions, extraOptions);
+  fs.readFile(path, 'utf8', function(err, template) {
+    if (err)
+      callback(err);
+    else callback(null, mustache.render(template, options));
   });
 });
 

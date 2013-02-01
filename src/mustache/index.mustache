@@ -2,11 +2,8 @@
 <html>
   <head>
     <title>SpaceChat</title>
-    <script type="text/javascript" src="/jquery.min.js"></script>
-    <script type="text/javascript" src="/jquery.timeago.js"></script>
-    <script type="text/javascript" src="/jquery.mustache.js"></script>
-    <script type="text/javascript" src="/socket.io.min.js"></script>
-    <script type="text/javascript" src="/templates.js"></script>
+    {{{baseJavascripts}}}
+    {{#clientTemplate}}foo{{/clientTemplate}}
   </head>
   <body>
     Hi world!
