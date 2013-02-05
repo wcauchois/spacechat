@@ -1,5 +1,5 @@
 function resizer() {
-  var paneHeight = $('#pane').height();
+  var paneHeight = $('#leftPane').height();
   $('#chat').height(paneHeight - 100);
 }
 $(window).resize(resizer);

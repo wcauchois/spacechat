@@ -23,17 +23,30 @@ html, body { height: 99%; }
   }
 }
 
-#pane {
+#leftPane {
   height: 100%;
 }
 
 #chat {
   border: 1px solid black;
   overflow-y: scroll;
+  margin: 10px;
 }
 
 #compose {
   height: 100px;
+  
+  #textContainer {
+    height: 100%;
+
+    textarea#text {
+      width: 90%;
+      font-family: sans-serif;
+      font-size: 1.2em;
+      padding: 10px;
+      margin: 10px;
+    }
+  }
 }
 
 #participants {
