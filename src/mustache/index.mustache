@@ -8,22 +8,19 @@
     <script type="text/javascript" src="/javascripts/main.js"></script>
   </head>
   <body>
-    <div id="main">
-      <table id="layout" width="100%" height="100%">
-        <tr>
-          <td><div id="chat">
-          </div></td>
-          <td><div id="participants">
-            <ul id="participantsList">
-            </ul>
-          </div></td>
-        </tr>
+    <div class="grid">
+      <div class="column wide" id="pane">
+        <div id="chat">
+        </div>
+        <div id="compose">
+          <input type="text" />
+        </div>
+      </div>
 
-        <tr colspan="2">
-          <td><div id="entry">
-          </div></td>
-        </tr>
-      </table>
+      <div class="column narrow">
+        <div id="participants">
+        </div>
+      </div>
     </div>
   </body>
 </html>

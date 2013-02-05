@@ -1,12 +1,40 @@
-#main {
-  #chat {
-    overflow-y: scroll;
-    height: 550px;
+html, body { height: 99%; }
+
+.grid {
+  height: 100%;
+
+  .column {
+    float: left;
+    height: 100%;
+
+    &.wide {
+      width: 80%;
+    }
+
+    &.narrow {
+      width: 20%;
+    }
   }
-  #participants {
-    width: 200px;
+
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
   }
-  #entry {
-    height: 200px;
-  }
+}
+
+#pane {
+  height: 100%;
+}
+
+#chat {
+  border: 1px solid black;
+  overflow-y: scroll;
+}
+
+#compose {
+  height: 100px;
+}
+
+#participants {
 }
