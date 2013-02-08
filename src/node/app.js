@@ -9,6 +9,8 @@ var app = express();
 
 app.set('views', path.join(__dirname, '../mustache'));
 app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.cookieParser());
+app.use(express.bodyParser());
 
 function mergeDictionaries(x, y) {
   var result = {};
@@ -26,13 +28,18 @@ var defaultMustacheOptions = {
         '\n</script>';
     };
   },
+  baseStylesheets: function() {
+    return '<link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">\n';
+  },
   baseJavascripts: function() {
-    return ['/javascripts/jquery.min.js',
-            '/javascripts/jquery.timeago.js',
-            '/javascripts/jquery.mustache.js',
-            '/javascripts/socket.io.min.js',
-            '/javascripts/less.min.js',
-            '/javascripts/clientTemplates.js'].map(function(scriptPath) {
+    return ['/js/jquery.min.js',
+            '/js/jquery.timeago.js',
+            '/js/jquery.mustache.js',
+            '/js/jquery.cookie.js',
+            '/js/socket.io.min.js',
+            '/js/less.min.js',
+            '/js/bootstrap.min.js',
+            '/js/clientTemplates.js'].map(function(scriptPath) {
               return '<script type="text/javascript" src="' +
                 scriptPath + '"></script>\n'; }).join('');
   }

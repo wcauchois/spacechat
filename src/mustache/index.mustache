@@ -2,26 +2,18 @@
 <html>
   <head>
     <title>SpaceChat</title>
-    <link rel="stylesheet/less" type="text/css" href="/stylesheets/main.less" />
+    {{{baseStylesheets}}}
     {{{baseJavascripts}}}
     {{#clientTemplate}}loremIpsum{{/clientTemplate}}
-    <script type="text/javascript" src="/javascripts/main.js"></script>
+
+    <link rel="stylesheet/less" type="text/css" href="/less/main.less" />
+    <script type="text/javascript" src="/js/main.js"></script>
   </head>
   <body>
-    <div class="grid">
-      <div class="column wide" id="leftPane">
-        <div id="chat">
-        </div>
-        <div id="compose">
-          <div id="textContainer">
-            <textarea rows="0" cols="0" id="text"></textarea>
-          </div>
-        </div>
+    <div class="row">
+      <div class="span4">
       </div>
-
-      <div class="column narrow">
-        <div id="participants">
-        </div>
+      <div class="span10">
       </div>
     </div>
   </body>
